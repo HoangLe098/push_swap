@@ -1,0 +1,85 @@
+void	push2b(t_list *stackA, t_list *stackB)
+{
+	if size(stackA) == 4
+		pb();
+	else
+	{
+		pb();
+		pb();
+	}
+	push2b_loop(stackA, stackB);
+}
+
+void	push2b_loop(t_list *stackA, t_list *stackB)
+{
+	int	min_cost;
+	int	cheap_node_index;
+	t_list	*ptrA;
+
+	while (size(stackA) > 3)
+	{
+		ptrA = stackA;
+		cheap_node_index = ptrA->index;
+		min_cost = cost_pair2top(ptrA, stackA, stackB, 'a');
+		while (ptrA->next != NULL)
+		{
+			push_cost = cost_pair2top(ptrA, stackA, stackB, 'a');
+			if (push_cost == 0)
+				break;
+			if (push_cost < min_cost)
+			{
+				min_cost = push_cost;
+				cheap_node_index = ptrA->index;
+			}
+			ptrA = ptrA->next;
+		}
+		pair2top(cheap_node_index, stackA, stackB);
+		pb();
+	}
+}
+
+size_t	target4a(int a_value, t_list *stackB)
+{
+	t_list *ptrB;
+	int	min_d;
+	size_t	target_index;
+
+	ptrB = stackB;
+	min_d = -1;
+	if (ptrB->value <= a_value)
+	{
+		min_d = a_value - ptrB->value;
+		target_index = ptrB->index;
+	}
+	while (ptrB->next != NULL)
+	{
+		if (ptrB->value <= a_value && a_value - ptrB->value < min_d)
+		{
+			min_d = a_value - ptr->value;
+			target_index = ptrB->index;
+		}
+		ptrB = ptrB->next;
+	}
+	if (min_d < 0)
+		target_index = max_index(stackB);
+	return (target_index);
+}
+
+size_t	cost2top(size_t index, size_t size)
+{
+	if (index <= size / 2)
+		return (index);
+	else
+		return (size - index);
+}
+
+size_t	cost_pair2top(size_t indexA, size_t sizeA, size_t indexB, size_t sizeB)
+{
+	if ((indexA <= sizeA / 2 && indexB <= sizeB / 2) 
+		|| (indexA > sizeA / 2 && indexB > sizeB / 2))
+		return (max(cost2top(indexA, sizeA), cost2top(indexB, sizeB)));
+	else
+	{
+		
+	}
+}
