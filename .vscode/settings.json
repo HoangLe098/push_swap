@@ -1,6 +1,9 @@
 {
     "C_Cpp.errorSquiggles": "disabled",
     "files.associations": {
-        "draft": "cpp"
+        "draft": "cpp",
+        "chrono": "c",
+        "random": "c",
+        "limits": "c"
     }
 }

@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/22 15:14:27 by hoale             #+#    #+#             */
-/*   Updated: 2025/02/22 15:47:19 by hoale            ###   ########.fr       */
+/*   Created: 2024/11/11 11:08:24 by hoale             #+#    #+#             */
+/*   Updated: 2025/01/17 15:57:05 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+t_list	*ft_lstnew(void *content)
 {
-	t_list	*stack_a;
+	t_list	*elem;
 
-	if (ac <= 1)
-		return (ft_printf("Error\n"), EXIT_FAILURE);
-	if (!(valid_check(av)))
-		return (ft_printf("Error\n"), EXIT_FAILURE);
-	stack_a = stack_init(av);
-	if (is_sort(stack_a) || is_repeat(stack_a))
-	{
-		free_stack(stack_a);
-		return (ft_printf("Error\n"), EXIT_FAILURE);
-	}
+	elem = (t_list *)malloc(1 * sizeof(t_list));
+	if (!elem)
+		return (NULL);
+	elem->content = content;
+	elem->next = NULL;
+	return (elem);
 }

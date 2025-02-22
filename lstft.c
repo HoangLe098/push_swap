@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   lstft.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/22 15:14:12 by hoale             #+#    #+#             */
+/*   Updated: 2025/02/22 15:36:33 by hoale            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 t_list	*ft_lstnew(int value)
@@ -15,11 +27,11 @@ t_list	*ft_lstnew(int value)
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*last;
-	
+
 	if (!*lst)
 	{
 		*lst = new;
-		return;
+		return ;
 	}
 	last = ft_lstlast(*lst);
 	last->next = new;
@@ -27,7 +39,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 
 int	ft_lstsize(t_list *lst)
 {
-	int	i;
+	int		i;
 	t_list	*ptr;
 
 	ptr = lst;
@@ -60,7 +72,7 @@ void	index_stack(t_list *lst)
 	int		i;
 
 	if (!lst)
-		return;
+		return ;
 	iter = lst;
 	i = 0;
 	while (iter)

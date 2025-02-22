@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   lstft2.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/22 15:14:21 by hoale             #+#    #+#             */
+/*   Updated: 2025/02/22 15:43:05 by hoale            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-node	max_node(t_list *stack)
+t_node	max_node(t_list *stack)
 {
-	t_list *ptr;
-	node	max;
+	t_list	*ptr;
+	t_node	max;
 
 	ptr = stack;
 	max.value = ptr->value;
@@ -19,10 +31,10 @@ node	max_node(t_list *stack)
 	return (max);
 }
 
-node	min_node(t_list *stack)
+t_node	min_node(t_list *stack)
 {
-	t_list *ptr;
-	node	min;
+	t_list	*ptr;
+	t_node	min;
 
 	ptr = stack;
 	min.value = ptr->value;
@@ -43,23 +55,23 @@ Target node has closest smaller value
 Find max value if no smaller value found*/
 int	target4a(int a_value, t_list *sb)
 {
-	t_list	*ptrB;
+	t_list	*ptrb;
 	int		min_d;
 	int		target_index;
 
-	ptrB = sb;
+	ptrb = sb;
 	min_d = -1;
-	while (ptrB)
+	while (ptrb)
 	{
-		if (ptrB->value <= a_value)
+		if (ptrb->value <= a_value)
 		{
-			if (min_d == -1 || a_value - ptrB->value < min_d)
+			if (min_d == -1 || a_value - ptrb->value < min_d)
 			{
-				min_d = a_value - ptrB->value;
-				target_index = ptrB->index;
+				min_d = a_value - ptrb->value;
+				target_index = ptrb->index;
 			}
 		}
-		ptrB = ptrB->next;
+		ptrb = ptrb->next;
 	}
 	if (min_d < 0)
 		target_index = max_node(sb).index;
@@ -71,23 +83,23 @@ Target node has closest bigger value
 Find min value if no bigger value found*/
 int	target4b(int b_value, t_list *sa)
 {
-	t_list	*ptrA;
+	t_list	*ptra;
 	int		min_d;
 	int		target_index;
 
-	ptrA = sa;
+	ptra = sa;
 	min_d = -1;
-	while (ptrA)
+	while (ptra)
 	{
-		if (ptrA->value >= b_value)
+		if (ptra->value >= b_value)
 		{
-			if (min_d == -1 || ptrA->value - b_value < min_d)
+			if (min_d == -1 || ptra->value - b_value < min_d)
 			{
-				min_d = ptrA->value - b_value;
-				target_index = ptrA->index;
+				min_d = ptra->value - b_value;
+				target_index = ptra->index;
 			}
 		}
-		ptrA = ptrA->next;
+		ptra = ptra->next;
 	}
 	if (min_d < 0)
 		target_index = min_node(sa).index;

@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/22 15:14:27 by hoale             #+#    #+#             */
-/*   Updated: 2025/02/22 15:47:19 by hoale            ###   ########.fr       */
+/*   Created: 2024/10/31 13:42:22 by hoale             #+#    #+#             */
+/*   Updated: 2025/01/17 15:57:37 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-int	main(int ac, char **av)
+#include "libft.h"
+//Malloc a str
+char	*ft_strdup(const char *s)
 {
-	t_list	*stack_a;
+	char			*ptr;
+	unsigned int	i;
 
-	if (ac <= 1)
-		return (ft_printf("Error\n"), EXIT_FAILURE);
-	if (!(valid_check(av)))
-		return (ft_printf("Error\n"), EXIT_FAILURE);
-	stack_a = stack_init(av);
-	if (is_sort(stack_a) || is_repeat(stack_a))
+	ptr = (char *)malloc(ft_strlen(s) + 1);
+	if (ptr == NULL)
+		return (NULL);
+	i = 0;
+	while (s[i])
 	{
-		free_stack(stack_a);
-		return (ft_printf("Error\n"), EXIT_FAILURE);
+		ptr[i] = s[i];
+		i++ ;
 	}
+	ptr[i] = 0;
+	return (ptr);
 }

@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/22 15:14:27 by hoale             #+#    #+#             */
-/*   Updated: 2025/02/22 15:47:19 by hoale            ###   ########.fr       */
+/*   Created: 2024/11/11 15:22:36 by hoale             #+#    #+#             */
+/*   Updated: 2025/01/17 15:55:44 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+int	ft_lstsize(t_list *lst)
 {
-	t_list	*stack_a;
+	int		i;
+	t_list	*ptr;
 
-	if (ac <= 1)
-		return (ft_printf("Error\n"), EXIT_FAILURE);
-	if (!(valid_check(av)))
-		return (ft_printf("Error\n"), EXIT_FAILURE);
-	stack_a = stack_init(av);
-	if (is_sort(stack_a) || is_repeat(stack_a))
+	ptr = lst;
+	i = 0;
+	while (ptr)
 	{
-		free_stack(stack_a);
-		return (ft_printf("Error\n"), EXIT_FAILURE);
+		ptr = ptr->next;
+		i++ ;
 	}
+	return (i);
 }

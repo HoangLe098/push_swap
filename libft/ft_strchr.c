@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/22 15:14:27 by hoale             #+#    #+#             */
-/*   Updated: 2025/02/22 15:47:19 by hoale            ###   ########.fr       */
+/*   Created: 2024/10/29 16:43:40 by hoale             #+#    #+#             */
+/*   Updated: 2025/01/17 15:57:44 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-int	main(int ac, char **av)
+#include "libft.h"
+// Return ptr from where func find char c
+char	*ft_strchr(const char *s, int c)
 {
-	t_list	*stack_a;
+	const char		*ptr;
+	unsigned char	cc;
 
-	if (ac <= 1)
-		return (ft_printf("Error\n"), EXIT_FAILURE);
-	if (!(valid_check(av)))
-		return (ft_printf("Error\n"), EXIT_FAILURE);
-	stack_a = stack_init(av);
-	if (is_sort(stack_a) || is_repeat(stack_a))
+	cc = (unsigned char)c;
+	ptr = s;
+	while (*ptr != 0)
 	{
-		free_stack(stack_a);
-		return (ft_printf("Error\n"), EXIT_FAILURE);
+		if (cc == *ptr)
+			return ((char *)ptr);
+		ptr++ ;
 	}
+	if (cc == 0)
+		return ((char *)ptr);
+	return (NULL);
 }

@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/22 15:14:27 by hoale             #+#    #+#             */
-/*   Updated: 2025/02/22 15:47:19 by hoale            ###   ########.fr       */
+/*   Created: 2024/11/04 17:54:03 by hoale             #+#    #+#             */
+/*   Updated: 2024/11/09 13:15:32 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-int	main(int ac, char **av)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	t_list	*stack_a;
+	unsigned int	i;
 
-	if (ac <= 1)
-		return (ft_printf("Error\n"), EXIT_FAILURE);
-	if (!(valid_check(av)))
-		return (ft_printf("Error\n"), EXIT_FAILURE);
-	stack_a = stack_init(av);
-	if (is_sort(stack_a) || is_repeat(stack_a))
+	if (!s)
+		return ;
+	i = 0;
+	while (s[i])
 	{
-		free_stack(stack_a);
-		return (ft_printf("Error\n"), EXIT_FAILURE);
+		(*f)(i, &s[i]);
+		i++ ;
 	}
 }

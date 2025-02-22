@@ -1,29 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/22 15:14:27 by hoale             #+#    #+#             */
-/*   Updated: 2025/02/22 15:47:19 by hoale            ###   ########.fr       */
+/*   Created: 2024/10/29 17:00:16 by hoale             #+#    #+#             */
+/*   Updated: 2024/11/04 11:52:30 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-int	main(int ac, char **av)
+char	*ft_strrchr(const char *s, int c)
 {
-	t_list	*stack_a;
+	const char		*ptr;
+	int				i;
+	unsigned char	cc;
 
-	if (ac <= 1)
-		return (ft_printf("Error\n"), EXIT_FAILURE);
-	if (!(valid_check(av)))
-		return (ft_printf("Error\n"), EXIT_FAILURE);
-	stack_a = stack_init(av);
-	if (is_sort(stack_a) || is_repeat(stack_a))
+	cc = (unsigned char)c;
+	ptr = s;
+	i = 0;
+	while (*ptr != 0)
+		ptr++ ;
+	if (cc == 0)
+		return ((char *)ptr);
+	while (ptr >= s)
 	{
-		free_stack(stack_a);
-		return (ft_printf("Error\n"), EXIT_FAILURE);
+		if (cc == *ptr)
+			return ((char *)ptr);
+		ptr-- ;
 	}
+	return (0);
 }
+/*
+#include <stdio.h>
+int	main()
+{
+	const char s[10] = "Hello";
+	int c = 'l';
+	printf("%s", ft_strrchr(s, c));
+	return (0);
+}
+*/

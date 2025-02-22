@@ -1,24 +1,45 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/22 15:48:35 by hoale             #+#    #+#             */
+/*   Updated: 2025/02/22 15:50:00 by hoale            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-// # include "printf/ft_printf.h"
+# include "libft/libft.h"
+# include "printf/printf.h"
 # include <stdlib.h>
 # include <limits.h>
 # include <unistd.h>
 
 typedef struct s_list
 {
-	int	index;
-	int	value;
-	struct s_list *next;
+	int				index;
+	int				value;
+	struct s_list	*next;
 }	t_list;
 
 typedef struct node
 {
 	int	index;
 	int	value;
-}	node;
+}	t_node;
+
+typedef struct cost
+{
+	int	cost;
+	int	rot_method;
+}	t_cost;
+
+# define TRUE = 1
+# define FALSE = 0
 
 int		valid_check(char **av);
 t_list	*ft_lstnew(int value);
@@ -32,14 +53,14 @@ int		target4a(int a_value, t_list *sb);
 int		target4b(int b_value, t_list *sa);
 t_list	*stack_init(char **av);
 int		is_sort(t_list *stack);
-int		is_repeat(t_list *stack);
-void	swap(t_list *stack);
+int		is_duplicate(t_list *stack);
+void	swap(t_list *stack, char s);
 void	ss(t_list *sa, t_list *sb);
 void	pa(t_list **sa, t_list **sb);
 void	pb(t_list **sa, t_list **sb);
-void	rotate(t_list **stack);
+void	rotate(t_list **stack, char s);
 void	rr(t_list **sa, t_list **sb);
-void	rev_rotate(t_list **stack);
+void	rev_rotate(t_list **stack, char s);
 void	rrr(t_list **sa, t_list **sb);
 int		max(int count, ...);
 int		min(int count, ...);

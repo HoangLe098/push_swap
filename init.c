@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/22 15:14:05 by hoale             #+#    #+#             */
+/*   Updated: 2025/02/22 15:46:37 by hoale            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	valid_check(char **av)
@@ -11,7 +23,7 @@ int	valid_check(char **av)
 		j = 0;
 		while (av[i][j])
 		{
-			if (av[i][j] > '9' && av[i][j] <'0')
+			if (av[i][j] > '9' && av[i][j] < '0')
 				return (0);
 			j++ ;
 		}
@@ -55,25 +67,25 @@ int	is_sort(t_list *stack)
 		prev = node->value;
 		node = node->next;
 	}
-	return(1);
+	return (1);
 }
 
-int	is_repeat(t_list *stack)
+int	is_duplicate(t_list *stack)
 {
 	t_list	*p1;
 	t_list	*p2;
 
 	p1 = stack;
-	while (p1->next)
+	while (p1)
 	{
-		p2 = p1->next;
+		p2 = stack;
 		while (p2)
 		{
-			if (p2->value == p1->value)
-				return (1);
+			if (p1->value == p2->value && p1->index != p2->index)
+				return (TRUE);
 			p2 = p2->next;
 		}
 		p1 = p1->next;
 	}
-	return (0);
+	return (FALSE);
 }

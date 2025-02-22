@@ -1,29 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   conv_char.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/22 15:14:27 by hoale             #+#    #+#             */
-/*   Updated: 2025/02/22 15:47:19 by hoale            ###   ########.fr       */
+/*   Created: 2024/11/15 17:28:56 by hoale             #+#    #+#             */
+/*   Updated: 2024/11/22 13:58:53 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "printf.h"
 
-int	main(int ac, char **av)
+void	conv_c(va_list **args, int **count)
 {
-	t_list	*stack_a;
+	ft_putchar_fd(va_arg(**args, int), 1);
+	**count += 1;
+}
 
-	if (ac <= 1)
-		return (ft_printf("Error\n"), EXIT_FAILURE);
-	if (!(valid_check(av)))
-		return (ft_printf("Error\n"), EXIT_FAILURE);
-	stack_a = stack_init(av);
-	if (is_sort(stack_a) || is_repeat(stack_a))
+void	conv_percent(int **count)
+{
+	ft_putchar_fd('%', 1);
+	**count += 1;
+}
+
+void	conv_s(va_list **args, int **count)
+{
+	char	*str;
+
+	str = va_arg(**args, char *);
+	if (!str)
 	{
-		free_stack(stack_a);
-		return (ft_printf("Error\n"), EXIT_FAILURE);
+		write(1, "(null)", 6);
+		**count += 6;
+		return ;
 	}
+	ft_putstr_fd(str, 1);
+	**count += ft_strlen(str);
 }
