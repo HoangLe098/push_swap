@@ -6,7 +6,7 @@
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 15:48:35 by hoale             #+#    #+#             */
-/*   Updated: 2025/02/22 15:50:00 by hoale            ###   ########.fr       */
+/*   Updated: 2025/02/22 16:27:29 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ typedef struct node
 {
 	int	index;
 	int	value;
-}	t_node;
+}
 
 typedef struct cost
 {
 	int	cost;
 	int	rot_method;
-}	t_cost;
+}
 
 # define TRUE = 1
 # define FALSE = 0

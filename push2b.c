@@ -6,19 +6,19 @@
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 15:13:47 by hoale             #+#    #+#             */
-/*   Updated: 2025/02/22 16:00:32 by hoale            ###   ########.fr       */
+/*   Updated: 2025/02/22 16:29:17 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 //Return cost to bring the b node and target to top
-struct t_cost	cost_b2top(t_list *sa, t_list *sb, t_list *bnode)
+struct cost	cost_b2top(t_list *sa, t_list *sb, t_list *bnode)
 {
 	int				target;
 	int				bota;
 	int				botb;
-	struct t_cost	b;
+	struct cost	b;
 
 	target = target4b(bnode->value, sa);
 	bota = ft_lstsize(sa) - target;
