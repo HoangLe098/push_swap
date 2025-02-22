@@ -6,16 +6,16 @@
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 15:14:21 by hoale             #+#    #+#             */
-/*   Updated: 2025/02/22 16:28:39 by hoale            ###   ########.fr       */
+/*   Updated: 2025/02/22 17:51:06 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-struct node	max_node(t_list *stack)
+struct s_node	max_node(t_list *stack)
 {
-	t_list		*ptr;
-	struct node	max;
+	t_list			*ptr;
+	struct s_node	max;
 
 	ptr = stack;
 	max.value = ptr->value;
@@ -31,10 +31,10 @@ struct node	max_node(t_list *stack)
 	return (max);
 }
 
-struct node	min_node(t_list *stack)
+struct s_node	min_node(t_list *stack)
 {
-	t_list		*ptr;
-	struct node	min;
+	t_list			*ptr;
+	struct s_node	min;
 
 	ptr = stack;
 	min.value = ptr->value;

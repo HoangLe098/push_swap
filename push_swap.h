@@ -6,7 +6,7 @@
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 15:48:35 by hoale             #+#    #+#             */
-/*   Updated: 2025/02/22 16:27:29 by hoale            ###   ########.fr       */
+/*   Updated: 2025/02/22 17:50:49 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,17 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
-typedef struct node
+struct s_node
 {
 	int	index;
 	int	value;
-}
+};
 
-typedef struct cost
+struct s_cost
 {
 	int	cost;
 	int	rot_method;
-}
+};
 
 # define TRUE = 1
 # define FALSE = 0
