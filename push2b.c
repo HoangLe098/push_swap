@@ -6,7 +6,7 @@
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 15:13:47 by hoale             #+#    #+#             */
-/*   Updated: 2025/02/22 15:48:08 by hoale            ###   ########.fr       */
+/*   Updated: 2025/02/22 16:00:32 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ t_list	*cheapest_b(t_list *sa, t_list *sb)
 {
 	t_list	*cur;
 	int		cur_cost;
-	int		cheap_cost;
 	t_list	*cheap_node;
+	int		cheap_cost;
 
 	cheap_node = sb;
 	cheap_cost = cost_b2top(sa, sb, sb).cost;
