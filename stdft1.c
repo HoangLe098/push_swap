@@ -6,7 +6,7 @@
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 15:14:53 by hoale             #+#    #+#             */
-/*   Updated: 2025/02/22 15:50:24 by hoale            ###   ########.fr       */
+/*   Updated: 2025/02/24 15:44:07 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,20 @@ void	pb(t_list **sa, t_list **sb)
 
 	if (!*sa)
 		return ;
-	tmp = *sa;
-	tmp = tmp->next;
-	(*sa)->next = *sb;
-	*sb = *sa;
-	*sa = tmp;
+	if (!*sb)
+	{
+		*sb = *sa;
+		*sa = (*sa)->next;
+		(*sb)->next = NULL;
+	}
+	else
+	{
+		tmp = *sa;
+		tmp = tmp->next;
+		(*sa)->next = *sb;
+		*sb = *sa;
+		*sa = tmp;
+	}
 	index_stack(*sa);
 	index_stack(*sb);
 	ft_printf("pb\n");
@@ -58,11 +67,20 @@ void	pa(t_list **sa, t_list **sb)
 
 	if (!*sb)
 		return ;
-	tmp = *sb;
-	tmp = tmp->next;
-	(*sb)->next = *sa;
-	*sa = *sb;
-	*sb = tmp;
+	if (!*sa)
+	{
+		*sa = *sb;
+		*sb = (*sa)->next;
+		(*sa)->next = NULL;
+	}
+	else
+	{
+		tmp = *sb;
+		tmp = tmp->next;
+		(*sb)->next = *sa;
+		*sa = *sb;
+		*sb = tmp;
+	}
 	index_stack(*sa);
 	index_stack(*sb);
 	ft_printf("pa\n");

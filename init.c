@@ -6,7 +6,7 @@
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 15:14:05 by hoale             #+#    #+#             */
-/*   Updated: 2025/02/22 15:46:37 by hoale            ###   ########.fr       */
+/*   Updated: 2025/02/24 14:58:31 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ int	valid_check(char **av)
 		while (av[i][j])
 		{
 			if (av[i][j] > '9' && av[i][j] < '0')
-				return (0);
+				return (FALSE);
 			j++ ;
 		}
-		if (ft_atoi(av[i]) > INT_MAX || ft_atoi(av[i] < INT_MIN))
-			return (0);
+		if (ft_atoi(av[i]) > INT_MAX || ft_atoi(av[i]) < INT_MIN)
+			return (FALSE);
 		i++ ;
 	}
-	return (1);
+	return (TRUE);
 }
 
 t_list	*stack_init(char **av)

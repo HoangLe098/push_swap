@@ -6,7 +6,7 @@
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 15:48:35 by hoale             #+#    #+#             */
-/*   Updated: 2025/02/22 17:50:49 by hoale            ###   ########.fr       */
+/*   Updated: 2025/02/24 17:54:11 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,18 @@ struct s_cost
 	int	rot_method;
 };
 
-# define TRUE = 1
-# define FALSE = 0
+# define TRUE 1
+# define FALSE 0
 
 int		valid_check(char **av);
 t_list	*ft_lstnew(int value);
+t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
 void	free_stack(t_list *stack);
 void	index_stack(t_list *lst);
-node	max_node(t_list *stack);
-node	min_node(t_list *stack);
+struct s_node	max_node(t_list *stack);
+struct s_node	min_node(t_list *stack);
 int		target4a(int a_value, t_list *sb);
 int		target4b(int b_value, t_list *sa);
 t_list	*stack_init(char **av);
@@ -62,11 +63,21 @@ void	rotate(t_list **stack, char s);
 void	rr(t_list **sa, t_list **sb);
 void	rev_rotate(t_list **stack, char s);
 void	rrr(t_list **sa, t_list **sb);
-int		max(int count, ...);
-int		min(int count, ...);
+int		max2(int a, int b);
+int		min2(int a, int b);
+int		min4(int a, int b, int c, int d);
 void	upup(t_list **sa, int posa, t_list **sb, int posb);
 void	downdown(t_list **sa, int posa, t_list **sb, int posb);
 void	updown(t_list **sa, int posa, t_list **sb, int posb);
 void	downup(t_list **sa, int posa, t_list **sb, int posb);
+struct s_cost	cost_b2top(t_list *sa, t_list *sb, t_list *bnode);
+t_list	*cheapest_b(t_list *sa, t_list *sb);
+void	cheapb2top(t_list **sa, t_list **sb);
+void	sort_three(t_list **stack);
+void	min2top(t_list **stack);
+void	sort(t_list **sa, t_list **sb);
+
+void	print_lst(t_list *stack);
+void	print_2lst(t_list *sa, t_list *sb);
 
 #endif

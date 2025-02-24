@@ -6,44 +6,38 @@
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 15:14:35 by hoale             #+#    #+#             */
-/*   Updated: 2025/02/22 15:14:36 by hoale            ###   ########.fr       */
+/*   Updated: 2025/02/24 17:50:07 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	max(int count, ...)
+int	max2(int a, int b)
 {
-	int	*args;
-	int	max_value;
-	int	i;
-
-	args = &count + 1;
-	max_value = *args;
-	i = 1;
-	while (i < count)
-	{
-		if (*(args + i) > max_value)
-			max_value = *(args + i);
-		i++ ;
-	}
-	return (max_value);
+	if (b > a)
+		return (b);
+	else
+		return (a);
 }
 
-int	min(int count, ...)
+int	min2(int a, int b)
 {
-	int	*args;
-	int	min_value;
-	int	i;
+	if (b < a)
+		return (b);
+	else
+		return (a);
+}
 
-	args = &count + 1;
-	min_value = *args;
-	i = 1;
-	while (i < count)
-	{
-		if (*(args + i) < min_value)
-			min_value = *(args + i);
-		i++ ;
-	}
-	return (min_value);
+int	min4(int a, int b, int c, int d)
+{
+	int min;
+
+	min = a;
+	if (b < min)
+		min = b;
+	if (c < min)
+		min = c;
+	if (d < min)
+		min = d;
+	return (min);
 }

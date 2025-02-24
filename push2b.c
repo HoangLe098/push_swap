@@ -6,7 +6,7 @@
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 15:13:47 by hoale             #+#    #+#             */
-/*   Updated: 2025/02/22 17:47:55 by hoale            ###   ########.fr       */
+/*   Updated: 2025/02/24 18:46:01 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,13 @@ struct s_cost	cost_b2top(t_list *sa, t_list *sb, t_list *bnode)
 	target = target4b(bnode->value, sa);
 	bota = ft_lstsize(sa) - target;
 	botb = ft_lstsize(sb) - bnode->index;
-	b.cost = min(4,
-			max(2, target, bnode->index),
-			max(2, bota, botb),
+	b.cost = min4(max2(target, bnode->index),
+			max2(bota, botb),
 			target + botb,
-			bota + bnode->index));
-	if (b.cost == max(2, target, bnode->index))
+			bota + bnode->index);
+	if (b.cost == max2(target, bnode->index))
 		b.rot_method = 1;
-	else if (b.cost == max(2, bota, botb))
+	else if (b.cost == max2(bota, botb))
 		b.rot_method = 2;
 	else if (b.cost == target + botb)
 		b.rot_method = 3;
@@ -67,14 +66,16 @@ t_list	*cheapest_b(t_list *sa, t_list *sb)
 void	cheapb2top(t_list **sa, t_list **sb)
 {
 	t_list	*cheap_node;
+	int method;
 
 	cheap_node = cheapest_b(*sa, *sb);
-	if (cost_b2top(*sa, *sb, cheap_node).rot_method == 1)
+	method = cost_b2top(*sa, *sb, cheap_node).rot_method;
+	if (method == 1)
 		upup(sa, target4b(cheap_node->value, *sa), sb, cheap_node->index);
-	else if (cost_b2top(*sa, *sb, cheap_node).rot_method == 2)
+	else if (method == 2)
 		downdown(sa, target4b(cheap_node->value, *sa), sb, cheap_node->index);
-	else if (cost_b2top(*sa, *sb, cheap_node).rot_method == 3)
+	else if (method == 3)
 		updown(sa, target4b(cheap_node->value, *sa), sb, cheap_node->index);
-	else if (cost_b2top(*sa, *sb, cheap_node).rot_method == 4)
-		updown(sa, target4b(cheap_node->value, *sa), sb, cheap_node->index);
+	else if (method == 4)
+		downup(sa, target4b(cheap_node->value, *sa), sb, cheap_node->index);
 }

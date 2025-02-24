@@ -6,7 +6,7 @@
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 12:29:01 by hoale             #+#    #+#             */
-/*   Updated: 2025/02/22 16:35:40 by hoale            ###   ########.fr       */
+/*   Updated: 2025/02/24 18:46:22 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	sort_three(t_list **stack)
 	if (max_node(*stack).index == 1)
 		rev_rotate(stack, 'a');
 	if (min_node(*stack).index == 1)
-		swap(stack, 'a');
+		swap(*stack, 'a');
 }
 
 void	min2top(t_list **stack)
@@ -59,7 +59,7 @@ void	sort(t_list **sa, t_list **sb)
 	sort_three(sa);
 	while (ft_lstsize(*sb) > 0)
 	{
-		cheapa2top(sa, sb);
+		cheapb2top(sa, sb);
 		pa(sa, sb);
 	}
 	min2top(sa);

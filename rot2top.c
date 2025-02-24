@@ -6,7 +6,7 @@
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 15:14:45 by hoale             #+#    #+#             */
-/*   Updated: 2025/02/22 15:55:39 by hoale            ###   ########.fr       */
+/*   Updated: 2025/02/24 18:08:25 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,41 +16,56 @@ void	upup(t_list **sa, int posa, t_list **sb, int posb)
 {
 	int	i;
 
-	i = -1;
-	while (i++ < min(2, posa, posb))
+	i = 0;
+	while (i < min2(posa, posb))
+	{
 		rr(sa, sb);
-	i = -1;
+		i++ ;
+	}
+	i = 0;
 	if (posa >= posb)
 	{
-		while (i++ < posa - posb)
+		while (i < posa - posb)
+		{
 			rotate(sa, 'a');
+			i++ ;
+		}
 		return ;
 	}
-	while (i++ < posb - posa)
+	i = 0;
+	while (i < posb - posa)
+	{
 		rotate(sb, 'b');
+		i++ ;
+	}
 }
 
 //Similar to upup but rr
 void	downdown(t_list **sa, int posa, t_list **sb, int posb)
 {
 	int	i;
-	int	bota;
-	int	botb;
 
-	bota = ft_lstsize(*sa) - posa;
-	botb = ft_lstsize(*sb) - posb;
-	i = -1;
-	while (i++ < min(2, bota, botb))
-		rrr(sa, sb);
-	i = -1;
-	if (bota >= botb)
+	i = 0;
+	while (i < min2(ft_lstsize(*sa) - posa, ft_lstsize(*sb) - posb))
 	{
-		while (i++ < bota - botb)
+		rrr(sa, sb);
+		i++ ;
+	}
+	i = 0;
+	if (ft_lstsize(*sa) - posa >= ft_lstsize(*sb) - posb)
+	{
+		while (i < (ft_lstsize(*sa) - posa) - (ft_lstsize(*sb) - posb))
+		{
 			rev_rotate(sa, 'a');
+			i++ ;
+		}
 		return ;
 	}
-	while (i++ < botb - bota)
+	while (i < (ft_lstsize(*sb) - posb) - (ft_lstsize(*sa) - posa))
+	{
 		rev_rotate(sb, 'b');
+		i++ ;
+	}
 }
 
 //Rot a up, rot b down

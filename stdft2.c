@@ -6,7 +6,7 @@
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 15:15:00 by hoale             #+#    #+#             */
-/*   Updated: 2025/02/22 15:45:28 by hoale            ###   ########.fr       */
+/*   Updated: 2025/02/24 15:58:39 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void	rev_rotate(t_list **stack, char s)
 			cur = cur->next;
 		cur->next = NULL;
 		*stack = tmp;
+		index_stack(*stack);
 	}
 	if (s == 'a')
 		ft_printf("rr%c\n", s);

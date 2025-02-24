@@ -6,7 +6,7 @@
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 15:14:12 by hoale             #+#    #+#             */
-/*   Updated: 2025/02/22 15:36:33 by hoale            ###   ########.fr       */
+/*   Updated: 2025/02/24 15:13:27 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,18 @@ t_list	*ft_lstnew(int value)
 	elem->value = value;
 	elem->next = NULL;
 	return (elem);
+}
+
+t_list	*ft_lstlast(t_list *lst)
+{
+	t_list	*last;
+
+	if (!lst)
+		return (NULL);
+	last = lst;
+	while (last->next != NULL)
+		last = last->next;
+	return (last);
 }
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
