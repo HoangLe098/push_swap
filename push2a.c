@@ -6,24 +6,24 @@ struct s_cost	cost_a2top(t_list *sa, t_list *sb, t_list *anode)
 	int				target;
 	int				bota;
 	int				botb;
-	struct s_cost	b;
+	struct s_cost	a;
 
 	target = target4a(anode->value, sb);
 	bota = ft_lstsize(sa) - anode->index;
 	botb = ft_lstsize(sb) - target;
-	b.cost = min4(max2(anode->index, target),
+	a.cost = min4(max2(anode->index, target),
 			max2(bota, botb),
 			anode->index + botb,
 			bota + target);
-	if (b.cost == max2(anode->index, target))
-		b.rot_method = 1;
-	else if (b.cost == max2(bota, botb))
-		b.rot_method = 2;
-	else if (b.cost == anode->index + botb)
-		b.rot_method = 3;
-	else if (b.cost == bota + target)
-		b.rot_method = 4;
-	return (b);
+	if (a.cost == max2(anode->index, target))
+		a.rot_method = 1;
+	else if (a.cost == max2(bota, botb))
+		a.rot_method = 2;
+	else if (a.cost == anode->index + botb)
+		a.rot_method = 3;
+	else if (a.cost == bota + target)
+		a.rot_method = 4;
+	return (a);
 }
 
 //Return positions of cheapest node a
