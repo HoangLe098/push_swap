@@ -59,7 +59,7 @@ void	sort(t_list **sa, t_list **sb)
 	sort_three(sa);
 	while (ft_lstsize(*sb) > 0)
 	{
-		cheapb2top(sa, sb);
+		cheapa2top(sa, sb);
 		pa(sa, sb);
 	}
 	min2top(sa);
