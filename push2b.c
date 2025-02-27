@@ -6,7 +6,7 @@
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 15:13:47 by hoale             #+#    #+#             */
-/*   Updated: 2025/02/27 15:10:47 by hoale            ###   ########.fr       */
+/*   Updated: 2025/02/27 18:34:08 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ t_list	*cheapest_a(t_list *sa, t_list *sb)
 void	cheapa2top(t_list **sa, t_list **sb)
 {
 	t_list	*cheap_node;
-	int method;
+	int		method;
 
 	cheap_node = cheapest_a(*sa, *sb);
 	method = cost_a2top(*sa, *sb, cheap_node).rot_method;

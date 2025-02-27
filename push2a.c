@@ -1,4 +1,14 @@
-#include "push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push2a.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/27 18:34:28 by hoale             #+#    #+#             */
+/*   Updated: 2025/02/27 18:36:08 by hoale            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -84,7 +94,7 @@ t_list	*cheapest_b(t_list *sa, t_list *sb)
 void	cheapb2top(t_list **sa, t_list **sb)
 {
 	t_list	*cheap_node;
-	int method;
+	int		method;
 
 	cheap_node = cheapest_b(*sa, *sb);
 	method = cost_b2top(*sa, *sb, cheap_node).rot_method;

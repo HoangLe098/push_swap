@@ -6,7 +6,7 @@
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 15:48:35 by hoale             #+#    #+#             */
-/*   Updated: 2025/02/27 17:19:36 by hoale            ###   ########.fr       */
+/*   Updated: 2025/02/27 18:31:07 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,4 @@ void			min2top(t_list **stack);
 void			sort(t_list **sa, t_list **sb);
 
 void			print_lst(t_list *stack);
-void			print_2lst(t_list *sa, t_list *sb);
-
 #endif

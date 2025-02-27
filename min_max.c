@@ -6,7 +6,7 @@
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 15:14:35 by hoale             #+#    #+#             */
-/*   Updated: 2025/02/27 15:23:57 by hoale            ###   ########.fr       */
+/*   Updated: 2025/02/27 18:33:53 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	min2(int a, int b)
 
 int	min4(int a, int b, int c, int d)
 {
-	int min;
+	int	min;
 
 	min = a;
 	if (b < min)
@@ -41,6 +41,7 @@ int	min4(int a, int b, int c, int d)
 		min = d;
 	return (min);
 }
+
 struct s_node	max_node(t_list *stack)
 {
 	t_list			*ptr;

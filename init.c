@@ -6,7 +6,7 @@
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 15:14:05 by hoale             #+#    #+#             */
-/*   Updated: 2025/02/27 17:28:17 by hoale            ###   ########.fr       */
+/*   Updated: 2025/02/27 18:35:32 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ int	valid_check(char **av, int start)
 		j = 0;
 		while (av[i][j])
 		{
-			if ((av[i][j] > '9' || av[i][j] < '0') && av[i][j] != '-' && av[i][j] != '+')
+			if ((av[i][j] > '9' || av[i][j] < '0')
+			&& av[i][j] != '-' && av[i][j] != '+')
 				return (FALSE);
 			j++ ;
 		}
