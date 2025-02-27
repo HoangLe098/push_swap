@@ -6,7 +6,7 @@
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 17:22:00 by hoale             #+#    #+#             */
-/*   Updated: 2024/11/08 15:51:39 by hoale            ###   ########.fr       */
+/*   Updated: 2025/02/27 18:24:09 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,3 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (0);
 }
-/*
-#include <stdio.h>
-int	main()
-{
-	const char s[10] = "Hello";
-	int c = 'l';
-	printf("%s", (char *)(ft_memchr(s, c, 3)));
-	return (0);
-}
-*/

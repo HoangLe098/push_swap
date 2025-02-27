@@ -6,7 +6,7 @@
 #    By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/27 17:47:22 by hoale             #+#    #+#              #
-#    Updated: 2025/02/24 14:27:37 by hoale            ###   ########.fr        #
+#    Updated: 2025/02/27 16:31:01 by hoale            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,19 +19,20 @@ PRINTF_LIB	= -L ./printf -lftprintf
 LIBFT_INC	= -I ./libft
 LIBFT_LIB	= -L ./libft -lft
 
-SRC			= testft.c \
+SRC			= main.c \
 				init.c \
 				lstft.c \
 				lstft2.c \
 				min_max.c \
 				push2b.c \
+				push2a.c \
 				rot2top.c \
 				sort.c \
 				stdft1.c \
 				stdft2.c
 				
 OBJ			= $(SRC:.c=.o)
-NAME		= test
+NAME		= push_swap
 
 all: subsystem $(NAME)
 

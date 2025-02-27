@@ -6,7 +6,7 @@
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 16:02:33 by hoale             #+#    #+#             */
-/*   Updated: 2024/10/29 19:18:20 by hoale            ###   ########.fr       */
+/*   Updated: 2025/02/27 18:23:58 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,3 @@ int	ft_isalpha(int c)
 		return (1);
 	return (0);
 }
-/*
-#include <stdio.h>
-int	main()
-{
-	char c;
-	c = '1';
-	printf("%i", ft_isalpha(c));
-}
-*/

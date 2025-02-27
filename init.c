@@ -6,24 +6,24 @@
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 15:14:05 by hoale             #+#    #+#             */
-/*   Updated: 2025/02/24 14:58:31 by hoale            ###   ########.fr       */
+/*   Updated: 2025/02/27 17:28:17 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	valid_check(char **av)
+int	valid_check(char **av, int start)
 {
 	int	i;
 	int	j;
 
-	i = 1;
+	i = start;
 	while (av[i])
 	{
 		j = 0;
 		while (av[i][j])
 		{
-			if (av[i][j] > '9' && av[i][j] < '0')
+			if ((av[i][j] > '9' || av[i][j] < '0') && av[i][j] != '-' && av[i][j] != '+')
 				return (FALSE);
 			j++ ;
 		}
@@ -34,15 +34,15 @@ int	valid_check(char **av)
 	return (TRUE);
 }
 
-t_list	*stack_init(char **av)
+t_list	*stack_init(char **av, int start)
 {
 	t_list	*stack;
 	int		i;
 
-	stack = ft_lstnew(ft_atoi(av[1]));
+	stack = ft_lstnew(ft_atoi(av[start]));
 	if (!stack)
 		return (NULL);
-	i = 2;
+	i = start + 1;
 	while (av[i])
 	{
 		ft_lstadd_back(&stack, ft_lstnew(ft_atoi(av[i])));
@@ -50,6 +50,19 @@ t_list	*stack_init(char **av)
 	}
 	index_stack(stack);
 	return (stack);
+}
+
+void	free_arg(char **arg)
+{
+	int	i;
+
+	i = 0;
+	while (arg[i])
+	{
+		free(arg[i]);
+		i++ ;
+	}
+	free(arg);
 }
 
 int	is_sort(t_list *stack)

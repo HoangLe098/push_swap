@@ -6,7 +6,7 @@
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 18:15:09 by hoale             #+#    #+#             */
-/*   Updated: 2024/10/31 16:41:02 by hoale            ###   ########.fr       */
+/*   Updated: 2025/02/27 18:23:48 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,3 @@ int	ft_atoi(const char *nptr)
 	}
 	return (result * minus);
 }
-/*
-#include <stdio.h>
-#include <stdlib.h>
-int	main()
-{
-	char	nb[] = "1";
-	printf("%i\n", ft_atoi(nb));
-	printf("%i", atoi(nb));
-}
-*/

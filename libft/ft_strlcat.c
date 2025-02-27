@@ -6,7 +6,7 @@
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:05:05 by hoale             #+#    #+#             */
-/*   Updated: 2024/11/11 13:36:39 by hoale            ###   ########.fr       */
+/*   Updated: 2025/02/27 18:24:43 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,4 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	dst[dlen + i] = 0;
 	return (dlen + slen);
 }
-/*
-#include <bsd/string.h>
-#include <stdio.h>
 
-int	main()
-{
-	char	src[] = "nyan !";
-	printf("%zu", strlcat(NULL,src, 0));
-}
-*/

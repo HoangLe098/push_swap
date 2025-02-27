@@ -6,7 +6,7 @@
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 15:14:12 by hoale             #+#    #+#             */
-/*   Updated: 2025/02/24 15:13:27 by hoale            ###   ########.fr       */
+/*   Updated: 2025/02/27 15:24:22 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,35 +62,4 @@ int	ft_lstsize(t_list *lst)
 		i++ ;
 	}
 	return (i);
-}
-
-void	free_stack(t_list *stack)
-{
-	t_list	*current;
-	t_list	*tmp;
-
-	current = stack;
-	while (current)
-	{
-		tmp = current;
-		current = current->next;
-		free(tmp);
-	}
-}
-
-void	index_stack(t_list *lst)
-{
-	t_list	*iter;
-	int		i;
-
-	if (!lst)
-		return ;
-	iter = lst;
-	i = 0;
-	while (iter)
-	{
-		iter->index = i;
-		iter = iter->next;
-		i++ ;
-	}
 }

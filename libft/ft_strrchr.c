@@ -6,7 +6,7 @@
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 17:00:16 by hoale             #+#    #+#             */
-/*   Updated: 2024/11/04 11:52:30 by hoale            ###   ########.fr       */
+/*   Updated: 2025/02/27 18:25:10 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,3 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	return (0);
 }
-/*
-#include <stdio.h>
-int	main()
-{
-	const char s[10] = "Hello";
-	int c = 'l';
-	printf("%s", ft_strrchr(s, c));
-	return (0);
-}
-*/

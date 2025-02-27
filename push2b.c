@@ -6,52 +6,80 @@
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 15:13:47 by hoale             #+#    #+#             */
-/*   Updated: 2025/02/24 18:46:01 by hoale            ###   ########.fr       */
+/*   Updated: 2025/02/27 15:10:47 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//Return cost to bring the b node and target to top
-struct s_cost	cost_b2top(t_list *sa, t_list *sb, t_list *bnode)
+/*Return the index of target node in stack B for an A node
+Target node has closest smaller value 
+Find max value if no smaller value found*/
+int	target4a(int a_value, t_list *sb)
+{
+	t_list	*ptrb;
+	int		min_d;
+	int		target_index;
+
+	ptrb = sb;
+	min_d = -1;
+	while (ptrb)
+	{
+		if (ptrb->value <= a_value)
+		{
+			if (min_d == -1 || a_value - ptrb->value < min_d)
+			{
+				min_d = a_value - ptrb->value;
+				target_index = ptrb->index;
+			}
+		}
+		ptrb = ptrb->next;
+	}
+	if (min_d < 0)
+		target_index = max_node(sb).index;
+	return (target_index);
+}
+
+//Return cost to bring the a node and target to top
+struct s_cost	cost_a2top(t_list *sa, t_list *sb, t_list *anode)
 {
 	int				target;
 	int				bota;
 	int				botb;
-	struct s_cost	b;
+	struct s_cost	a;
 
-	target = target4b(bnode->value, sa);
-	bota = ft_lstsize(sa) - target;
-	botb = ft_lstsize(sb) - bnode->index;
-	b.cost = min4(max2(target, bnode->index),
+	target = target4a(anode->value, sb);
+	bota = ft_lstsize(sa) - anode->index;
+	botb = ft_lstsize(sb) - target;
+	a.cost = min4(max2(anode->index, target),
 			max2(bota, botb),
-			target + botb,
-			bota + bnode->index);
-	if (b.cost == max2(target, bnode->index))
-		b.rot_method = 1;
-	else if (b.cost == max2(bota, botb))
-		b.rot_method = 2;
-	else if (b.cost == target + botb)
-		b.rot_method = 3;
-	else if (b.cost == bota + bnode->index)
-		b.rot_method = 4;
-	return (b);
+			anode->index + botb,
+			bota + target);
+	if (a.cost == max2(anode->index, target))
+		a.rot_method = 1;
+	else if (a.cost == max2(bota, botb))
+		a.rot_method = 2;
+	else if (a.cost == anode->index + botb)
+		a.rot_method = 3;
+	else if (a.cost == bota + target)
+		a.rot_method = 4;
+	return (a);
 }
 
 //Return positions of cheapest node b
-t_list	*cheapest_b(t_list *sa, t_list *sb)
+t_list	*cheapest_a(t_list *sa, t_list *sb)
 {
 	t_list	*cur;
 	int		cur_cost;
 	t_list	*cheap_node;
 	int		cheap_cost;
 
-	cheap_node = sb;
-	cheap_cost = cost_b2top(sa, sb, sb).cost;
-	cur = sb;
+	cheap_node = sa;
+	cheap_cost = cost_a2top(sa, sb, sa).cost;
+	cur = sa;
 	while (cur)
 	{
-		cur_cost = cost_b2top(sa, sb, cur).cost;
+		cur_cost = cost_a2top(sa, sb, cur).cost;
 		if (cur_cost < cheap_cost)
 		{
 			cheap_cost = cur_cost;
@@ -63,19 +91,19 @@ t_list	*cheapest_b(t_list *sa, t_list *sb)
 }
 
 //Move the cheapest node b and its target to the tops
-void	cheapb2top(t_list **sa, t_list **sb)
+void	cheapa2top(t_list **sa, t_list **sb)
 {
 	t_list	*cheap_node;
 	int method;
 
-	cheap_node = cheapest_b(*sa, *sb);
-	method = cost_b2top(*sa, *sb, cheap_node).rot_method;
+	cheap_node = cheapest_a(*sa, *sb);
+	method = cost_a2top(*sa, *sb, cheap_node).rot_method;
 	if (method == 1)
-		upup(sa, target4b(cheap_node->value, *sa), sb, cheap_node->index);
+		upup(sa, cheap_node->index, sb, target4a(cheap_node->value, *sb));
 	else if (method == 2)
-		downdown(sa, target4b(cheap_node->value, *sa), sb, cheap_node->index);
+		downdown(sa, cheap_node->index, sb, target4a(cheap_node->value, *sb));
 	else if (method == 3)
-		updown(sa, target4b(cheap_node->value, *sa), sb, cheap_node->index);
+		updown(sa, cheap_node->index, sb, target4a(cheap_node->value, *sb));
 	else if (method == 4)
-		downup(sa, target4b(cheap_node->value, *sa), sb, cheap_node->index);
+		downup(sa, cheap_node->index, sb, target4a(cheap_node->value, *sb));
 }

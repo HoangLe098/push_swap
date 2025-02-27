@@ -6,7 +6,7 @@
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 12:43:32 by hoale             #+#    #+#             */
-/*   Updated: 2024/11/11 13:02:10 by hoale            ###   ########.fr       */
+/*   Updated: 2025/02/27 18:25:18 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,12 +84,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	n = trim_end(ptr, set);
 	return (ft_strndup(ptr, n));
 }
-/*
-#include <stdio.h>
-int	main()
-{
-	char s1[] = "abcdadba";
-	char set[] = "acb";
-	printf("%s\n", ft_strtrim(s1, set));
-}
-*/

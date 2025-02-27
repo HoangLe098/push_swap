@@ -6,7 +6,7 @@
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 17:08:04 by hoale             #+#    #+#             */
-/*   Updated: 2024/11/08 15:54:25 by hoale            ###   ########.fr       */
+/*   Updated: 2025/02/27 18:24:58 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,3 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		i++ ;
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
-/*
-#include <stdio.h>
-#include <string.h>
-int	main()
-{
-	char str1[] = "ava";
-	char str2[] = "avb";
-	printf("%i\n", strncmp(str1,str2, 2));
-	printf("%i", ft_strncmp(str1,str2, 2));
-}
-*/

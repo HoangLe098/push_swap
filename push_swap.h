@@ -6,7 +6,7 @@
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 15:48:35 by hoale             #+#    #+#             */
-/*   Updated: 2025/02/24 17:54:11 by hoale            ###   ########.fr       */
+/*   Updated: 2025/02/27 17:19:36 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ struct s_cost
 # define TRUE 1
 # define FALSE 0
 
-int				valid_check(char **av);
+int				valid_check(char **av, int start);
 t_list			*ft_lstnew(int value);
 t_list			*ft_lstlast(t_list *lst);
 void			ft_lstadd_back(t_list **lst, t_list *new);
@@ -52,7 +52,8 @@ struct s_node	max_node(t_list *stack);
 struct s_node	min_node(t_list *stack);
 int				target4a(int a_value, t_list *sb);
 int				target4b(int b_value, t_list *sa);
-t_list			*stack_init(char **av);
+t_list			*stack_init(char **av, int start);
+void			free_arg(char **arg);
 int				is_sort(t_list *stack);
 int				is_duplicate(t_list *stack);
 void			swap(t_list *stack, char s);

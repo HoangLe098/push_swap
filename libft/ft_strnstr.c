@@ -6,7 +6,7 @@
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 18:43:32 by hoale             #+#    #+#             */
-/*   Updated: 2024/11/11 13:37:24 by hoale            ###   ########.fr       */
+/*   Updated: 2025/02/27 18:25:04 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,3 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (0);
 }
-
-/*
-#include <bsd/string.h>
-#include <stdio.h>
-int	main()
-{
-	const char	big[] = "aaabcabcd";
-	const char	lil[] = "w";
-
-	printf("%s\n", strnstr(big, "cd", 8));
-	printf("%s", ft_strnstr(big, "cd", 8));
-	return (0);
-}
-*/

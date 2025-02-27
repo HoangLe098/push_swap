@@ -6,7 +6,7 @@
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 17:59:26 by hoale             #+#    #+#             */
-/*   Updated: 2024/11/08 14:51:13 by hoale            ###   ########.fr       */
+/*   Updated: 2025/02/27 18:24:13 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,3 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 		i++ ;
 	return (*(unsigned char *)(s1 + i) - *(unsigned char *)(s2 + i));
 }
-/*
-#include <stdio.h>
-#include <string.h>
-int	main()
-{
-	char str1[] = {-128, 0, 127, 0};
-	char str2[] = {0, 0, 127, 0};
-	printf("%i\n", memcmp(str2,str1, 1));
-	printf("%i", ft_memcmp(str2,str1, 1));
-}
-*/
