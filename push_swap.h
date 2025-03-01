@@ -55,7 +55,6 @@ int				target4b(int b_value, t_list *sa);
 t_list			*stack_init(char **av, int start);
 void			free_arg(char **arg);
 int				is_sort(t_list *stack);
-int				is_duplicate(t_list *stack);
 void			swap(t_list *stack, char s);
 void			ss(t_list *sa, t_list *sb);
 void			pa(t_list **sa, t_list **sb);

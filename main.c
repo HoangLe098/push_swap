@@ -53,10 +53,10 @@ int	main(int ac, char **av)
 			return (EXIT_FAILURE);
 	}
 	sb = NULL;
-	if (is_duplicate(sa))
+	if (is_sort(sa) == TRUE)
 	{
 		free_stack(sa);
-		return (write(2, "Error\n", 6), EXIT_FAILURE);
+		return (0);
 	}
 	sort(&sa, &sb);
 	free_stack(sa);

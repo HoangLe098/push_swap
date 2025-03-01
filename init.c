@@ -12,7 +12,31 @@
 
 #include "push_swap.h"
 
-int	valid_check(char **av, int start)
+static int	is_integer(char *str)
+{
+	int 		i;
+	long long	nbr;
+
+	i = 0;
+	if (str[i] = '-')
+		i++ ;
+	nbr = 0;
+	while (str[i])
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (FALSE);
+		nbr = nbr * 10 + (str[i] - '0')
+		i++ ;
+	}
+	if (str[0] == '-')
+		nbr = -nbr;
+	if (nbr > INT_MAX || nbr < INT_MIN)
+		return (FALSE);
+	else
+		return (TRUE);
+}
+
+static int	is_duplicate(char **av, int start)
 {
 	int	i;
 	int	j;
@@ -20,18 +44,31 @@ int	valid_check(char **av, int start)
 	i = start;
 	while (av[i])
 	{
-		j = 0;
-		while (av[i][j])
+		j = start;
+		while (av[j])
 		{
-			if ((av[i][j] > '9' || av[i][j] < '0')
-			&& av[i][j] != '-' && av[i][j] != '+')
-				return (FALSE);
+			if (ft_atoi(av[i]) == ft_atoi(av[j]) && i != j)
+				return (TRUE);
 			j++ ;
 		}
-		if (ft_atoi(av[i]) > INT_MAX || ft_atoi(av[i]) < INT_MIN)
+		i++ ;
+	}
+	return (FALSE);
+}
+
+int	valid_check(char **av, int start)
+{
+	int	i;
+
+	i = start;
+	while (av[i])
+	{
+		if (is_integer(av[i]) == FALSE)
 			return (FALSE);
 		i++ ;
 	}
+	if (is_duplicate(av, start) == TRUE)
+		return (FALSE);
 	return (TRUE);
 }
 
@@ -77,29 +114,9 @@ int	is_sort(t_list *stack)
 	while (node)
 	{
 		if (node->value <= prev)
-			return (0);
+			return (FALSE);
 		prev = node->value;
 		node = node->next;
 	}
-	return (1);
-}
-
-int	is_duplicate(t_list *stack)
-{
-	t_list	*p1;
-	t_list	*p2;
-
-	p1 = stack;
-	while (p1)
-	{
-		p2 = stack;
-		while (p2)
-		{
-			if (p1->value == p2->value && p1->index != p2->index)
-				return (TRUE);
-			p2 = p2->next;
-		}
-		p1 = p1->next;
-	}
-	return (FALSE);
+	return (TRUE);
 }
