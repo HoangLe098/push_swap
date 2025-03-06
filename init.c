@@ -6,26 +6,26 @@
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 15:14:05 by hoale             #+#    #+#             */
-/*   Updated: 2025/02/27 18:35:32 by hoale            ###   ########.fr       */
+/*   Updated: 2025/03/03 17:29:52 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	is_integer(char *str)
+int	is_integer(char *str)
 {
-	int 		i;
+	int			i;
 	long long	nbr;
 
 	i = 0;
-	if (str[i] = '-')
+	if ((str[i] == '-' || str[i] == '+') && str[i + 1])
 		i++ ;
 	nbr = 0;
 	while (str[i])
 	{
 		if (str[i] < '0' || str[i] > '9')
 			return (FALSE);
-		nbr = nbr * 10 + (str[i] - '0')
+		nbr = nbr * 10 + (str[i] - '0');
 		i++ ;
 	}
 	if (str[0] == '-')
@@ -36,40 +36,24 @@ static int	is_integer(char *str)
 		return (TRUE);
 }
 
-static int	is_duplicate(char **av, int start)
+int	is_duplicate(t_list *stack)
 {
-	int	i;
-	int	j;
+	t_list	*p1;
+	t_list	*p2;
 
-	i = start;
-	while (av[i])
+	p1 = stack;
+	while (p1)
 	{
-		j = start;
-		while (av[j])
+		p2 = stack;
+		while (p2)
 		{
-			if (ft_atoi(av[i]) == ft_atoi(av[j]) && i != j)
+			if (p1->value == p2->value && p1->index != p2->index)
 				return (TRUE);
-			j++ ;
+			p2 = p2->next;
 		}
-		i++ ;
+		p1 = p1->next;
 	}
 	return (FALSE);
-}
-
-int	valid_check(char **av, int start)
-{
-	int	i;
-
-	i = start;
-	while (av[i])
-	{
-		if (is_integer(av[i]) == FALSE)
-			return (FALSE);
-		i++ ;
-	}
-	if (is_duplicate(av, start) == TRUE)
-		return (FALSE);
-	return (TRUE);
 }
 
 t_list	*stack_init(char **av, int start)

@@ -6,7 +6,7 @@
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 18:34:28 by hoale             #+#    #+#             */
-/*   Updated: 2025/02/27 18:36:08 by hoale            ###   ########.fr       */
+/*   Updated: 2025/03/06 17:29:17 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@ Target node has closest bigger value
 Find min value if no bigger value found*/
 int	target4b(int b_value, t_list *sa)
 {
-	t_list	*ptra;
-	int		min_d;
-	int		target_index;
+	t_list		*ptra;
+	long long	min_d;
+	long long	lla;
+	long long	llb;
+	int			target_index;
 
 	ptra = sa;
 	min_d = -1;
@@ -27,9 +29,11 @@ int	target4b(int b_value, t_list *sa)
 	{
 		if (ptra->value >= b_value)
 		{
-			if (min_d == -1 || ptra->value - b_value < min_d)
+			lla = (long long)ptra->value;
+			llb = (long long)b_value;
+			if (min_d == -1 || lla - llb < min_d)
 			{
-				min_d = ptra->value - b_value;
+				min_d = lla - llb;
 				target_index = ptra->index;
 			}
 		}

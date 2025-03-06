@@ -6,7 +6,7 @@
 /*   By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 15:48:35 by hoale             #+#    #+#             */
-/*   Updated: 2025/02/27 18:31:07 by hoale            ###   ########.fr       */
+/*   Updated: 2025/03/06 17:30:38 by hoale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ struct s_cost
 # define TRUE 1
 # define FALSE 0
 
-int				valid_check(char **av, int start);
+int				is_integer(char *str);
+int				is_duplicate(t_list *stack);
 t_list			*ft_lstnew(int value);
 t_list			*ft_lstlast(t_list *lst);
 void			ft_lstadd_back(t_list **lst, t_list *new);
@@ -80,5 +81,4 @@ void			sort_three(t_list **stack);
 void			min2top(t_list **stack);
 void			sort(t_list **sa, t_list **sb);
 
-void			print_lst(t_list *stack);
 #endif

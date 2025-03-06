@@ -6,7 +6,7 @@
 #    By: hoale <hoale@student.hive.fi>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/27 17:47:22 by hoale             #+#    #+#              #
-#    Updated: 2025/02/27 16:31:01 by hoale            ###   ########.fr        #
+#    Updated: 2025/03/06 15:48:33 by hoale            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,3 +59,6 @@ fclean:	clean
 	rm -f $(NAME)
 
 re:	fclean all
+
+norm: 
+	norminette libft printf $(SRC)
